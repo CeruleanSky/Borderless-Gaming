@@ -19,6 +19,9 @@ namespace BorderlessGaming
         {
             if (!Debugger.IsAttached)
                 ExceptionHandler.AddGlobalHandlers();
+            
+            Process currentProcess = Process.GetCurrentProcess();
+            currentProcess.PriorityClass = System.Diagnostics.ProcessPriorityClass.BelowNormal;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
